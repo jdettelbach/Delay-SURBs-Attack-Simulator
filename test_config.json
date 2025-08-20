@@ -1,0 +1,62 @@
+
+{
+    "experiment_id": "Simulation Stratified",
+    "mode": "attack",
+    "logging":  {
+        "enabled": true,
+        "dir": "logs",
+        "client_log": "client_log.json",
+        "mix_log": "mix_log.json"},
+    "phases":   {
+        "burnin": 2000,
+        "execution": 4000,
+        "attack": 3000,
+        "cooldown": 4000},
+    "network": {
+        "delay": true,
+        "gateway": false,
+        "topology" : "stratified",
+        "cascade" : {
+          "cascade_len": 3,
+          "num_gateways": 0},
+        "stratified" : {
+          "layers": 3,
+          "layer_size": 40,
+          "num_gateways": 0
+        },
+        "multi_cascade" : {
+          "cascade_len" : 3,
+          "num_cascades" : 2
+        },
+        "p2p" : {
+          "path_length" : 3
+        }
+      },
+    "packet": {
+        "packet_size": 0},
+    "message": {
+        "min_msg_size": 2,
+        "max_msg_size": 2},
+    "mixnodes": {
+			"avg_delay": 50.0,
+      "batch": false,
+      "batch_size" : 1000,
+			"AQM":false},
+    "clients": {
+        "number": 1000,
+        "sim_add_buffer": 5.0,
+        "rate_sending": 20.0,
+        "rate_ack": 1.0,
+        "cover_traffic":true,
+        "cover_traffic_rate":200,
+        "SURB":true,
+        "SURB_number": 0,
+        "retransmit":false,
+
+        "retransmit_timeout": 1950,
+        "dummies_acks":false,
+        "max_retransmissions":5},
+    "misc": {
+        "id_len": 8,
+        "num_target_packets": 100}
+}
